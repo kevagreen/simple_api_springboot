@@ -7,7 +7,7 @@ import java.time.Month;
 import java.util.List;
 
 @Service
-public class EmployeeServiceImpl {
+public class EmployeeServiceImpl implements EmployeeService {
 
     public List<Employee> getEmployees(){
         return List.of(
