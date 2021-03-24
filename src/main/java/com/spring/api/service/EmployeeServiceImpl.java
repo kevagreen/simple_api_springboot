@@ -26,4 +26,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
         employeeRepository.save(employee);
     }
+
+    public void deleteEmployee(Long id){
+        if (!employeeRepository.existsById(id)){
+            throw new IllegalStateException("employee id " + id + "does not exist");
+        }
+        employeeRepository.deleteById(id);
+    }
 }
