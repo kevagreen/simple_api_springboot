@@ -9,6 +9,7 @@ import org.apache.tomcat.jni.Local;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.Period;
 
 
 @Data
@@ -44,5 +45,7 @@ public class Employee {
         this.dob = dob;
     }
 
-
+    public Integer getAge() {
+        return Period.between(this.dob, LocalDate.now()).getYears();
+    }
 }
