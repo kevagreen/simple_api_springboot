@@ -1,5 +1,6 @@
 package com.spring.api.employee;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +15,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table
-@Builder
+@Entity(name = "employees")
 public class Employee {
 
     @Id
@@ -31,14 +32,17 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String email;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dob;
+    @Transient
     private Integer age;
 
-    public Employee(String firstName, String lastName, String email, LocalDate dob, Integer age) {
+    public Employee(String firstName, String lastName, String email, LocalDate dob) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.dob = dob;
-        this.age = age;
     }
+
+
 }
