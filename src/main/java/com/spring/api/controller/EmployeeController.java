@@ -4,9 +4,7 @@ import com.spring.api.employee.Employee;
 import com.spring.api.service.EmployeeService;
 import com.spring.api.service.EmployeeServiceImpl;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,6 +21,11 @@ public class EmployeeController {
     public List<Employee> getAllEmployees(){
 
     return employeeService.getEmployees();
+    }
+
+    @PostMapping
+    public void createNewEmployee(@RequestBody Employee employee){
+        employeeService.newEmployee(employee);
     }
 
 }
